@@ -41,24 +41,16 @@
 }
 
 .profile-item {
-    background-color: #e0e0e0;
+    background-color: pink;
     padding: 10px;
     margin: 5px 0;
     width: 100%;
     border-radius: 5px;
-   
 }
 
-.profile-item span.label {
-    margin-right: 10px;
+.profile-item span {
     font-weight: bold;
-    text-align: left;
 }
-
-.profile-item span.value {
-    text-align: right;
-}
-
 </style>
 
 
@@ -66,7 +58,7 @@
 <body>
 <div class="profile-container">
         <div class="profile-picture">
-            <img src="public/assets/img/bebek.jpeg" alt="Profile Picture">
+            <img src="{{ asset('assets/images/fotoProfilPink.jpeg') }}" alt="Profile Picture">
         </div>
         <div class="profile-info">
             <div class="profile-item">
