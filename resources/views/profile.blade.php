@@ -3,79 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile User</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <title>Profile</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
         body {
             font-family: 'Poppins', sans-serif;
+            background-color: grey; 
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #FFCCCB; /* Background gradient pink */
+            position: relative; /* Agar tombol kembali dapat diposisikan */
         }
+
         .profile-container {
-            background-color: #ffafcc; /* Warna hijau tua lebih lembut */
+            background-color: #fff;
             padding: 30px;
-            border-radius: 25px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); 
-            width: 320px;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
             text-align: center;
-            transition: all 0.3s ease;
+            width: 350px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
         .profile-container:hover {
-            transform: scale(1.05); /* Efek hover untuk container */
+            transform: scale(1.08);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
-        .profile-pic {
-            margin-bottom: 20px;
+
+        .profile-image img {
             border-radius: 50%;
-            border: 5px solid #FFCCCB; /* Border kuning lebih cerah */
-            width: 160px;
-            height: 160px;
-            object-fit: cover;
-            transition: all 0.3s ease;
+            width: 150px;
+            height: 150px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            transition: box-shadow 0.3s ease;
         }
-        .profile-pic:hover {
-            transform: scale(1.1); /* Efek hover pada gambar profil */
+
+        .profile-image img:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
         }
-        .info-item {
-            background-color: #FFC0CB; /* Background pink pastel lembut */
-            color: #4b4b4b; /* Warna teks abu-abu gelap */
-            margin: 10px 0;
+
+        .profile-details {
+            margin-top: 25px;
+        }
+
+        .profile-info {
+            background-color: grey;
             padding: 12px;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 17px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Tambah bayangan lembut */
+            margin: 12px 0;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
-        h1 {
-            color: #ffffff; /* Teks putih */
-            margin-bottom: 25px;
-            font-size: 28px;
-            font-weight: 700;
+
+        .profile-info:first-child,
+        .profile-info:nth-child(2),
+        .profile-info:last-child {
+            color: white;
         }
-        span {
-            font-weight: 600;
-            font-size: 16px;
+
+        .profile-info:hover {
+            background-color: #b2ebf2;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Gaya untuk tombol kembali */
+        .btn-back {
+            position: absolute; /* Agar tombol bisa diposisikan relatif terhadap body */
+            top: 20px;
+            left: 20px;
+            background-color: black; /* Warna tombol */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none; /* Menghilangkan garis bawah */
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-back:hover {
+            background-color: #004d40; /* Efek hover */
         }
     </style>
 </head>
 <body>
-<div class="profile-container">
-    <h1>Profile User</h1>
-    <div class="profile-info">
-        <!-- Tampilkan gambar profil dari public/assets/img -->
-        <img src="{{ asset('assets/img/Sabna.jpeg') }}" alt="Profile Picture" class="profile-pic">
-        <!-- Info user -->
-        <div class="info-item">Nama: {{ $nama }}</div>
-        <div class="info-item">NPM: {{ $npm }}</div>
-        <!-- Info user dengan kelas inline -->
-        <div class="info-item">
-            <span>Kelas:</span>
-            <span>{{ $nama_kelas ?? 'Kelas tidak ditemukan' }}</span>
+    <!-- Tombol Kembali -->
+    <a href="{{ route('users.index') }}" class="btn-back">Kembali Ke List Data</a>
+
+    <div class="profile-container">
+        <div class="profile-image">
+            <img src="{{ asset($user->foto ?? 'assets/img/default-foto.jpg') }}" alt="Profile Image">
+        </div>
+
+        <div class="profile-details">
+            <div class="profile-info">Nama: {{ $user->nama }}</div>
+            <div class="profile-info">Kelas: {{ $user->kelas->nama_kelas ?? 'Kelas tidak ditemukan' }}</div>
+            <div class="profile-info">NPM: {{ $user->npm }}</div>
         </div>
     </div>
-</div>
 </body>
 </html>
