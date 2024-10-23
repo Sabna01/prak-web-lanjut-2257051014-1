@@ -16,6 +16,8 @@ class Kelas extends Model
         return $this->all();
     }
 
+    protected $fillable = ['nama_kelas'];
+
     public function user(){
         return $this->hasMany(UserModel::class, 'kelas_id');
     }

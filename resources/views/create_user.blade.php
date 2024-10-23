@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create User</title>
 
-    <!-- Style untuk halaman create user -->
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
@@ -16,25 +16,25 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
-            background-image: url('/images/WhatsApp Image 2024-09-19 at 21.31.05.jpeg'); /* Ganti dengan path gambar yang sesuai */
+            background-image: url('/images/WhatsApp Image 2024-09-19 at 21.31.05.jpeg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             filter: brightness(70%);
         }
         .container {
-            background-color: rgba(255, 255, 255, 0.9); /* Warna putih dengan transparansi */
-            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.9); 
+            padding: 70px;
             border-radius: 10px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             width: 100%;
-            max-width: 400px;
+            max-width: 300px;
             text-align: center;
         }
         h1 {
             color: #333;
             font-size: 28px;
-            font-weight: 600;
+            font-weight: 800;
             margin-bottom: 20px;
         }
         form {
@@ -87,7 +87,7 @@
         button:active {
             transform: scale(1);
         }
-        /* Responsive Design */
+        
         @media (max-width: 500px) {
             .container {
                 width: 90%;
@@ -111,6 +111,12 @@
 
             <label for="npm">NPM:</label>
             <input type="text" id="npm" name="npm" required>
+
+            <label for="jurusan">Jurusan:</label>
+            <input type="text" id="jurusan" name="jurusan" required>
+
+            <label for="semester">Semester:</label>
+            <input type="text" id="semester" name="semester" required>
 
             <label for="kelas_id">Kelas:</label>
             <select id="kelas_id" name="kelas_id" required>
