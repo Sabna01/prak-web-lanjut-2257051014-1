@@ -13,7 +13,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background: linear-gradient(135deg, #74ebd5, #ACB6E5); /* Background gradient */
+            background: linear-gradient(135deg, #74ebd5, #ACB6E5); 
         }
         .container {
             background-color: white;
